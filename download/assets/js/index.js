@@ -255,13 +255,15 @@ function showSignupForm() {
   );
 }
 
-// Password eye icon
-
+// Select the password input field and the toggle icon (eye icon)
 let togglePassword = document.querySelector("#togglePassword");
-let password = document.querySelector("#password");
+let passwordField = document.querySelector("#password");
 
 togglePassword.addEventListener("click", function () {
-  // Toggle the type attribute between 'password' and 'text'
-  let type = password.getAttribute("type") === "password" ? "text" : "password";
-  password.setAttribute("type", type);
+  const type =
+    passwordField.getAttribute("type") === "password" ? "text" : "password";
+  passwordField.setAttribute("type", type);
+  
+  const icon = this.querySelector("i");
+  icon.classList.toggle("fa-eye-slash"); 
 });

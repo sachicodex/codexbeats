@@ -13,7 +13,9 @@
   color: rgb(0, 255, 72);
 }
 
-* { -webkit-tap-highlight-color: transparent;}
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
 body {
   background-color: #1E1E20;
@@ -50,10 +52,14 @@ body::after {
   border-radius: 100px 30px 600px 100px;
 }
 
-::-webkit-scrollbar { display: none;}
+::-webkit-scrollbar {
+  display: none;
+}
 
 a:active,
-button:active { background-color: initial;}
+button:active {
+  background-color: initial;
+}
 
 p {
   font-size: 15px;
@@ -66,9 +72,13 @@ p {
 
 }
 
-span { color: #717171;}
+span {
+  color: #717171;
+}
 
-img { width: 100px;}
+img {
+  width: 100px;
+}
 
 input::placeholder {
   font-family: "fredoka";
@@ -109,6 +119,7 @@ input[type="number"]::-webkit-inner-spin-button {
 #togglePassword {
   position: absolute;
   margin: 15px 0px 0px -30px;
+  cursor: pointer;
 }
 
 .fade-scale-out {
@@ -203,7 +214,9 @@ input[type="number"]::-webkit-inner-spin-button {
   padding-top: 30px;
 }
 
-#form_content_inner_container { width: 500px;}
+#form_content_inner_container {
+  width: 500px;
+}
 
 #button_container {
   width: 100%;
@@ -211,7 +224,9 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-top: 5px;
 }
 
-#button_login { display: none;}
+#button_login {
+  display: none;
+}
 
 #button_container button {
   width: 280px;
