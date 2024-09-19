@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+*::selection {
+  background: none;
+  color: rgb(0, 255, 72);
+}
+
+* { -webkit-tap-highlight-color: transparent;}
+
 body {
   background-color: #1E1E20;
   color: #717171;
@@ -35,33 +50,10 @@ body::after {
   border-radius: 100px 30px 600px 100px;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  border: none;
-  outline: none;
-}
-
-*::selection {
-  background: none;
-  color: rgb(0, 255, 72);
-}
+::-webkit-scrollbar { display: none;}
 
 a:active,
-button:active {
-  background-color: initial;
-
-}
-
-* {
-  -webkit-tap-highlight-color: transparent;
-}
+button:active { background-color: initial;}
 
 p {
   font-size: 15px;
@@ -74,13 +66,9 @@ p {
 
 }
 
-span {
-  color: #717171;
-}
+span { color: #717171;}
 
-img {
-  width: 100px;
-}
+img { width: 100px;}
 
 input::placeholder {
   font-family: "fredoka";
@@ -95,17 +83,36 @@ input[type="password"] {
   font-weight: 500;
 }
 
+button,
+input {
+  all: unset;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px #0005;
+  border: 1px solid #71717188;
+  transition: background-image 0.5s, opacity .5s, border .5s;
+  width: 280px;
+  height: 25px;
+  margin-bottom: 20px;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 #togglePassword {
   position: absolute;
   margin: 15px 0px 0px -30px;
-
 }
 
-
-/* Fade-out with scale-down */
 .fade-scale-out {
   animation: fade-scale-out 1s forwards;
-  /* 1 second duration */
 }
 
 @keyframes fade-scale-out {
@@ -120,10 +127,8 @@ input[type="password"] {
   }
 }
 
-/* Fade-in with scale-up */
 .fade-scale-in {
   animation: fade-scale-in 1s forwards;
-  /* 1 second duration */
 }
 
 @keyframes fade-scale-in {
@@ -137,7 +142,6 @@ input[type="password"] {
     transform: scale(1);
   }
 }
-
 
 #content_container {
   width: 100%;
@@ -156,20 +160,14 @@ input[type="password"] {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   overflow-x: hidden;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   min-height: 100vh;
-  /* Ensure it takes at least the height of the viewport */
   padding: 20px;
-  /* Add some padding to prevent overflow on smaller screens */
   box-sizing: border-box;
-  /* Ensure padding doesn't add extra size */
 }
-
 
 #form_header_container {
   width: 100%;
@@ -205,44 +203,15 @@ input[type="password"] {
   padding-top: 30px;
 }
 
-#form_content_inner_container {
-  width: 500px;
-
-}
-
-button,
-input {
-  all: unset;
-  padding: 10px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px #0005;
-  border: 1px solid #71717188;
-  transition: background-image 0.5s, opacity .5s, border .5s;
-  width: 280px;
-  height: 25px;
-  margin-bottom: 20px;
-}
-
-input[type="number"] {
-  -moz-appearance: textfield;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+#form_content_inner_container { width: 500px;}
 
 #button_container {
   width: 100%;
   height: 8%;
   margin-top: 5px;
-
 }
 
-#button_login {
-  display: none;
-}
+#button_login { display: none;}
 
 #button_container button {
   width: 280px;
