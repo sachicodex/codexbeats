@@ -263,7 +263,25 @@ togglePassword.addEventListener("click", function () {
   const type =
     passwordField.getAttribute("type") === "password" ? "text" : "password";
   passwordField.setAttribute("type", type);
-  
+
   const icon = this.querySelector("i");
-  icon.classList.toggle("fa-eye-slash"); 
+  icon.classList.toggle("fa-eye-slash");
+});
+
+// Loader
+
+document.body.style.scrollBehavior = "smooth";
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    document.querySelector(".parent").style.opacity = "0";
+    document.querySelector(".parent").style.transition =
+      "opacity 1s ease-in-out";
+    document.querySelector(".main-content").classList.add("visible");
+
+    setTimeout(function () {
+      document.querySelector(".parent").style.display = "none";
+      document.body.style.overflow = "auto";
+    }, 1000); // Matches the transition duration
+  }, 4000);
 });
