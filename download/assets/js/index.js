@@ -43,7 +43,6 @@ function register() {
       text: "Input Email and Password!",
     });
     return;
-    // Don't continue running the code
   }
 
   // Move on with Auth
@@ -66,7 +65,6 @@ function register() {
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).set(user_data);
 
-      // DOne
       // Show success message and reset input fields
       Swal.fire({
         icon: "success",
@@ -76,14 +74,12 @@ function register() {
         document.getElementById("button_login").style.display = "block";
         document.getElementById("button_signup").style.display = "none";
         document.getElementById("form_header").innerHTML = "Login your account";
-        // Clear the input fields
         clearInputFields();
       });
     })
     .catch(function (error) {
       // Firebase will use this to alert of its errors
       var error_message = error.message;
-
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -106,7 +102,6 @@ function login() {
       text: "Please Enter Your Details!",
     });
     return;
-    // Don't continue running the code
   }
 
   auth
@@ -126,21 +121,33 @@ function login() {
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).update(user_data);
 
-      // DOne
+      // Show success message and trigger the image download
       Swal.fire({
         icon: "success",
-        title: "You Are Successfully Login!",
+        title: "You Are Successfully Logged In!",
         showConfirmButton: false,
         timer: 2500,
       }).then(() => {
-        // Redirect to another page after the alert
-        window.location.href = "https://my.microsoftpersonalcontent.com/personal/b2011b3b073024bf/_layouts/15/download.aspx?UniqueId=a90410ba-ffb5-45cc-b2b4-fc6e1a4ce72e&Translate=false&tempauth=v1e.eyJzaXRlaWQiOiI4NjkzYTY5NS1jYmNhLTRjMTItYWJmMi1jZGFiYzg2YjU3NTgiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbXkubWljcm9zb2Z0cGVyc29uYWxjb250ZW50LmNvbUA5MTg4MDQwZC02YzY3LTRjNWItYjExMi0zNmEzMDRiNjZkYWQiLCJleHAiOiIxNzI5MjczOTAyIn0.KCOp6G-cOsUlA8ZVM5mBGLtRGNEYeHPQSWOjcV-DvnG6Mqoj9DyM-h-WVnah0jG_NdWudTYiq-nAyrxcDeC_UiVxDcw-8br3pYec4KczLG_JRvP8RuolehjSLrNYf9KSEtp14mB8AmpTiakpHmnA5pCPfLmzBn5pAxmnap-MlY0uB4lMqE17K3D3HjUKhGXVgDi78fLvm2i6-_6MjqGcFb5WuhMHNUTa7shN5Ff3-veIptucjppO7RVJWFtsT97VpQubDuin00JIdm1esSwDPgg5HdEpvigKjxfM8Yr63PKCwE5c1G21J8aGfC0ozU7pjlxtuzF1v7Pxnk0vHFo9fN1fw_SHR6EB2XBSK6Cns19AS_gFkH-Vgyv-uCnqq4Y3K9AWUNhatYTs13FGxgdIvcClzaVkValX10Cyn_0skvE5b-JJ4oCxD2LR5UU_evhUuuZuCYMbz9TU8IEQxhlL7-SIurqXBuvt0UbTu9oqRD5qCrznJ9Dza57AJhrWD5hw2c2AVeGyRcHbFtgzIQ0zXA.nRn1vd4OffrmFPqoUW2EkQe9lFa_sWecQAVoVHSgpMA&ApiVersion=2.0"; // Replace "your-link-here" with the URL you want to redirect to
+        // Fetch the image file and trigger download
+        const imageUrl =
+          "https://raw.githubusercontent.com/sachicodex/codexbeats/main/assets/images/faq.png";
+
+        // Use fetch API to get the image and convert it to a blob
+        fetch(imageUrl)
+          .then((response) => response.blob())
+          .then((blob) => {
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "faq.png"; // Set the file name for download
+            link.click(); // Trigger the download
+          })
+          .catch((error) =>
+            console.error("Error downloading the image:", error)
+          );
       });
     })
     .catch(function (error) {
-      // Firebase will use this to alert of its errors
       var error_message = error.message;
-
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -153,11 +160,9 @@ function login() {
 function validate_email(email) {
   expression = /^[^@]+@\w+(\.\w+)+\w$/;
   if (expression.test(email) == true) {
-    // Email is good
-    return true;
+    return true; // Email is good
   } else {
-    // Email is not good
-    return false;
+    return false; // Email is not good
   }
 }
 
@@ -171,11 +176,7 @@ function validate_password(password) {
 }
 
 function validate_field(field) {
-  if (field == null) {
-    return false;
-  }
-
-  if (field.length <= 0) {
+  if (field == null || field.length <= 0) {
     return false;
   } else {
     return true;
@@ -269,7 +270,6 @@ togglePassword.addEventListener("click", function () {
 });
 
 // Loader
-
 document.body.style.scrollBehavior = "smooth";
 
 document.addEventListener("DOMContentLoaded", function () {
