@@ -43,7 +43,6 @@ function register() {
       text: "Input Email and Password!",
     });
     return;
-    // Don't continue running the code
   }
 
   // Move on with Auth
@@ -66,7 +65,6 @@ function register() {
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).set(user_data);
 
-      // DOne
       // Show success message and reset input fields
       Swal.fire({
         icon: "success",
@@ -76,14 +74,12 @@ function register() {
         document.getElementById("button_login").style.display = "block";
         document.getElementById("button_signup").style.display = "none";
         document.getElementById("form_header").innerHTML = "Login your account";
-        // Clear the input fields
         clearInputFields();
       });
     })
     .catch(function (error) {
       // Firebase will use this to alert of its errors
       var error_message = error.message;
-
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -106,7 +102,6 @@ function login() {
       text: "Please Enter Your Details!",
     });
     return;
-    // Don't continue running the code
   }
 
   auth
@@ -126,21 +121,33 @@ function login() {
       // Push to Firebase Database
       database_ref.child("users/" + user.uid).update(user_data);
 
-      // DOne
+      // Show success message and trigger the image download
       Swal.fire({
         icon: "success",
-        title: "You Are Successfully Login!",
+        title: "You Are Successfully Logged In!",
         showConfirmButton: false,
         timer: 2500,
       }).then(() => {
-        // Redirect to another page after the alert
-        window.location.href = "https://bit.ly/next-music-download"; // Replace "your-link-here" with the URL you want to redirect to
+        // Fetch the image file and trigger download
+        const imageUrl =
+          "https://raw.githubusercontent.com/sachicodex/codexbeats/main/download/assets/apk/Code%20x%20Beats.apk";
+
+        // Use fetch API to get the image and convert it to a blob
+        fetch(imageUrl)
+          .then((response) => response.blob())
+          .then((blob) => {
+            const link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = "Code x Beats v 8.2.0.apk"; // Set the file name for download
+            link.click(); // Trigger the download
+          })
+          .catch((error) =>
+            console.error("Error downloading the image:", error)
+          );
       });
     })
     .catch(function (error) {
-      // Firebase will use this to alert of its errors
       var error_message = error.message;
-
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -153,11 +160,9 @@ function login() {
 function validate_email(email) {
   expression = /^[^@]+@\w+(\.\w+)+\w$/;
   if (expression.test(email) == true) {
-    // Email is good
-    return true;
+    return true; // Email is good
   } else {
-    // Email is not good
-    return false;
+    return false; // Email is not good
   }
 }
 
@@ -171,11 +176,7 @@ function validate_password(password) {
 }
 
 function validate_field(field) {
-  if (field == null) {
-    return false;
-  }
-
-  if (field.length <= 0) {
+  if (field == null || field.length <= 0) {
     return false;
   } else {
     return true;
@@ -263,7 +264,24 @@ togglePassword.addEventListener("click", function () {
   const type =
     passwordField.getAttribute("type") === "password" ? "text" : "password";
   passwordField.setAttribute("type", type);
-  
+
   const icon = this.querySelector("i");
-  icon.classList.toggle("fa-eye-slash"); 
+  icon.classList.toggle("fa-eye-slash");
+});
+
+// Loader
+document.body.style.scrollBehavior = "smooth";
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function () {
+    document.querySelector(".parent").style.opacity = "0";
+    document.querySelector(".parent").style.transition =
+      "opacity 1s ease-in-out";
+    document.querySelector(".main-content").classList.add("visible");
+
+    setTimeout(function () {
+      document.querySelector(".parent").style.display = "none";
+      document.body.style.overflow = "auto";
+    }, 1000); // Matches the transition duration
+  }, 4000);
 });
